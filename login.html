@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="loginStyle.css" />
+ </head>
+ <body>
+  <div class="container">
+   <header>
+    <h2>WELCOME TO AFROZE MOVIES.</h2>
+   </header>
+   <form action="./index.html">
+     <label>Username:</label>
+     <input type="text" name="name" placeholder="Enter your name" required/>
+     <label>Email:</label>
+     <input type="email" placeholder="abc@gmail.com" name="email" required/>
+     <label>Password:</label>
+     <input type="password" placeholder="Enter the password" name="password" required/>
+    <button type="submit">Submit</button>
+   </form>
+  </div>
+  <script>
+    const inputs = document.querySelectorAll("input");
+    
+         inputs.forEach((input)=>{
+              input.addEventListener('keyup',(e)=>{
+                 Valid(e.target,regex[e.target.attributes.name.value]);
+              })
+            })
+
+        const regex = {
+               name:/^\w+$/i,
+               password:/^[a-zA-Z0-9]{10,100}$/i,
+               email:/^\S+@\S+\.\S+$/i,
+          }
+
+         const Valid = (field,reg) =>{
+             if(reg.test(field.value)){
+                 field.className='Valid';
+             }
+             else{
+                 field.className='Invalid';
+             }
+            }
+         
+   </script>
+ </body>
+</html>
